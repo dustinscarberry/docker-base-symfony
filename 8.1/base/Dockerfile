@@ -1,0 +1,30 @@
+FROM php:8.1-fpm-alpine3.15
+
+# add s6 services
+COPY services.d /etc/services.d
+
+# add s6 overlay
+ADD https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.1/s6-overlay-amd64-installer /tmp/
+RUN chmod +x /tmp/s6-overlay-amd64-installer && /tmp/s6-overlay-amd64-installer /
+
+# add composer installer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+# install php extensions
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+RUN chmod +x /usr/local/bin/install-php-extensions && \
+    install-php-extensions imagick mysqli pdo_mysql gmp gd intl zip
+
+# install nginx
+RUN apk add --no-cache nginx
+
+# copy app nginx config
+COPY app.conf /etc/nginx/sites-enabled/default
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# copy symfony migration scripts
+COPY migrations.sh /etc/cont-init.d/migrations.sh
+
+EXPOSE 80
+
+ENTRYPOINT ["/init"]
