@@ -13,7 +13,10 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 # install php extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions imagick mysqli pdo_mysql gmp gd intl zip
+    install-php-extensions imagick mysqli pdo_mysql gmp gd intl zip exif opcache
+
+# copy php.ini
+COPY php.ini "$PHP_INI_DIR/php.ini"
 
 # install nginx
 RUN apk add --no-cache nginx
@@ -21,6 +24,9 @@ RUN apk add --no-cache nginx
 # copy app nginx config
 COPY app.conf /etc/nginx/sites-enabled/default
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# fix nginx permissions
+RUN chown -R www-data:www-data /var/lib/nginx
 
 # copy symfony migration scripts
 COPY migrations.sh /etc/cont-init.d/migrations.sh
