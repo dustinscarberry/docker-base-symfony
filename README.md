@@ -2,26 +2,26 @@
 
 ## Current variants
 
-### 8.0.x
+### 8.0
 
 Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions.
 
-### 8.0.x-extra
+### 8.0-extra
 
 Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions as well as sqlsrv, pdo_sqlsrv, oci8 and ldap.
 
-### 8.1.x
+### 8.1
 
 Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions.
 
-### 8.1.x-extra
+### 8.1-extra
 
 Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions as well as sqlsrv, pdo_sqlsrv, oci8 and ldap.
 
 ## Usage
 
 ```docker
-FROM dustinscarberry/symfony-base:8.0.x
+FROM dustinscarberry/symfony-base:8.1
 
 # set workdir
 WORKDIR /var/www/html
