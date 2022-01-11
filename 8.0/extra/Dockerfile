@@ -25,6 +25,10 @@ RUN apk add --no-cache nginx
 COPY app.conf /etc/nginx/sites-enabled/default
 COPY nginx.conf /etc/nginx/nginx.conf
 
+# setup ldap and fix self signed certificates
+RUN apk add --no-cache openldap
+RUN echo "TLS_REQCERT never" >> /etc/openldap/ldap.conf
+
 # fix nginx permissions
 RUN chown -R www-data:www-data /var/lib/nginx
 
