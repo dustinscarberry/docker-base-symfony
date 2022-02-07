@@ -18,6 +18,10 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
 # copy php.ini
 COPY php.ini "$PHP_INI_DIR/php.ini"
 
+# change php-fpm to socket
+RUN rm /usr/local/etc/php-fpm.d/*
+COPY www.conf /usr/local/etc/php-fpm.d/www.conf
+
 # install nginx
 RUN apk add --no-cache nginx
 
