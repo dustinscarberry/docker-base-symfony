@@ -1,4 +1,4 @@
-# Symfony App Base Image
+# Symfony Base Docker Image
 
 ## Current variants
 
