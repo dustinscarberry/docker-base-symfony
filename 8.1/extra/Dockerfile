@@ -26,8 +26,9 @@ COPY www.conf /usr/local/etc/php-fpm.d/www.conf
 RUN apk add --no-cache nginx
 
 # copy app nginx config
-COPY app.conf /etc/nginx/sites-enabled/default
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx/app.conf /etc/nginx/sites-enabled/default
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/inc /etc/nginx/inc
 
 # setup ldap and fix self signed certificates
 RUN apk add --no-cache openldap
