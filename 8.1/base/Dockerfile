@@ -36,6 +36,11 @@ RUN chown -R www-data:www-data /var/lib/nginx
 # copy symfony migration scripts
 COPY migrations.sh /etc/cont-init.d/migrations.sh
 
+# create docker user
+#RUN addgroup -S aeon -g 433 && adduser -S aeon -u 431 -G aeon
+
+#USER aeon
+
 EXPOSE 80
 
 ENTRYPOINT ["/init"]
