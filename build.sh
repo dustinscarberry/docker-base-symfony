@@ -1,7 +1,7 @@
 #!/bin/sh
 
-php8Version=php:8.0.21-fpm-alpine3.16
-php81Version=php:8.1.8-fpm-alpine3.16
+php8Version=php:8.0.23-fpm-alpine3.16
+php81Version=php:8.1.10-fpm-alpine3.16
 
 docker login
 
