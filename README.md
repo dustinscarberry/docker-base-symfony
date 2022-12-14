@@ -2,19 +2,11 @@
 
 ## Current variants
 
-### 8.0
+### 8.x
 
 Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions.
 
-### 8.0-extra
-
-Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions as well as sqlsrv, pdo_sqlsrv, oci8 and ldap.
-
-### 8.1
-
-Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions.
-
-### 8.1-extra
+### 8.x-extra
 
 Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions as well as sqlsrv, pdo_sqlsrv, oci8 and ldap.
 
