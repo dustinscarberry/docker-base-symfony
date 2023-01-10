@@ -24,6 +24,9 @@ COPY php.ini "$PHP_INI_DIR/php.ini"
 RUN rm /usr/local/etc/php-fpm.d/*
 COPY www.conf /usr/local/etc/php-fpm.d/www.conf
 
+# adjust other php-fpm settings
+COPY php-fpm.conf /usr/local/etc/php-fpm.conf
+
 # install nginx
 RUN apk add --no-cache nginx
 
