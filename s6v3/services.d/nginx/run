@@ -1,0 +1,4 @@
+#!/command/with-contenv sh
+
+nginx
+echo "nginx running"
