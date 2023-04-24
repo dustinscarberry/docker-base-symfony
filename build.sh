@@ -1,8 +1,8 @@
 #!/bin/sh
 
 php8Version=php:8.0.28-fpm-alpine
-php81Version=php:8.1.16-fpm-alpine
-php82Version=php:8.2.3-fpm-alpine
+php81Version=php:8.1.18-fpm-alpine
+php82Version=php:8.2.5-fpm-alpine
 
 docker login
 
@@ -12,20 +12,11 @@ docker login
 docker build -t dustinscarberry/symfony-base:php8.0 --build-arg PHP_VERSION=$php8Version -f images/base/Dockerfile .
 docker push dustinscarberry/symfony-base:php8.0
 
-docker build -t dustinscarberry/symfony-base:php8.0-s6v3 --build-arg PHP_VERSION=$php8Version -f images/base-s6v3/Dockerfile .
-docker push dustinscarberry/symfony-base:php8.0-s6v3
-
 docker build -t dustinscarberry/symfony-base:php8.1 --build-arg PHP_VERSION=$php81Version -f images/base/Dockerfile .
 docker push dustinscarberry/symfony-base:php8.1
 
-docker build -t dustinscarberry/symfony-base:php8.1-s6v3 --build-arg PHP_VERSION=$php81Version -f images/base-s6v3/Dockerfile .
-docker push dustinscarberry/symfony-base:php8.1-s6v3
-
 docker build -t dustinscarberry/symfony-base:php8.2 --build-arg PHP_VERSION=$php82Version -f images/base/Dockerfile .
 docker push dustinscarberry/symfony-base:php8.2
-
-docker build -t dustinscarberry/symfony-base:php8.2-s6v3 --build-arg PHP_VERSION=$php82Version -f images/base-s6v3/Dockerfile .
-docker push dustinscarberry/symfony-base:php8.2-s6v3
 
 # extra images
 docker build -t dustinscarberry/symfony-base:php8.0-extra --build-arg PHP_VERSION=$php8Version -f images/extra/Dockerfile .

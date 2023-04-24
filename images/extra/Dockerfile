@@ -4,10 +4,20 @@ FROM $PHP_VERSION
 
 # add s6 services
 COPY services.d /etc/services.d
+RUN chmod -R +x /etc/services.d
+
+# override service startup timeout
+ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0
 
 # add s6 overlay
-ADD https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.1/s6-overlay-amd64-installer /tmp/
-RUN chmod +x /tmp/s6-overlay-amd64-installer && /tmp/s6-overlay-amd64-installer /
+ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.4.1/s6-overlay-noarch.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
+ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.4.1/s6-overlay-x86_64.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
+
+# copy symfony migration scripts
+COPY migrations.sh /etc/cont-init.d/migrations.sh
+RUN chmod -R +x /etc/cont-init.d/migrations.sh
 
 # add composer installer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -41,9 +51,6 @@ RUN echo "TLS_REQCERT never" >> /etc/openldap/ldap.conf
 
 # fix nginx permissions
 RUN chown -R www-data:www-data /var/lib/nginx
-
-# copy symfony migration scripts
-COPY migrations.sh /etc/cont-init.d/migrations.sh
 
 EXPOSE 80
 

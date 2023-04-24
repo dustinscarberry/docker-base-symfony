@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv sh
+#!/command/with-contenv sh
 
 exec /usr/local/sbin/php-fpm --nodaemonize
 echo "php running"

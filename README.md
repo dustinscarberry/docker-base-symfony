@@ -6,10 +6,6 @@
 
 Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions.
 
-### 8.x-s6v3
-
-Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions. Based on new v3 S6 overlay.
-
 ### 8.x-extra
 
 Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extensions as well as sqlsrv, pdo_sqlsrv, oci8 and ldap.

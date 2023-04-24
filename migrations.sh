@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv sh
+#!/command/with-contenv sh
 
 # run migrations
 /var/www/html/bin/console doctrine:migrations:migrate --no-interaction
