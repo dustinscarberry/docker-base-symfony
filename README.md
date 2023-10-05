@@ -13,7 +13,7 @@ Base box with nginx / php-fpm and migration scripts. Comes with basic PHP extens
 ## Usage
 
 ```docker
-FROM dustinscarberry/symfony-base:8.1
+FROM dustinscarberry/symfony:8.2
 
 # set workdir
 WORKDIR /var/www/html
