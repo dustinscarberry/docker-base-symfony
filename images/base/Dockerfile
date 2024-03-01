@@ -25,7 +25,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 # install php extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions imagick mysqli pdo_mysql gmp gd intl zip exif soap opcache
+    install-php-extensions imagick mysqli pdo_mysql gmp gd intl zip exif soap opcache redis
 
 # copy php.ini
 COPY php.ini "$PHP_INI_DIR/php.ini"
