@@ -1,4 +1,4 @@
-<img src="https://github.com/dustinscarberry/docker-base-symfony/master/symfony-docker-base-image.png" alt="Project banner image">
+<img src="https://github.com/dustinscarberry/docker-base-symfony/raw/master/symfony-docker-base-image.png" alt="Project banner image">
 
 A base image for Symfony apps with nginx / php-fpm based on s6 overlay, used to containerize applications based on the Symfony framework.
 
