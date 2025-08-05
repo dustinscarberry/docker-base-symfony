@@ -1,5 +1,7 @@
 <img src="https://github.com/dustinscarberry/docker-base-symfony/blob/5070280cbd030ef10e9df36e2dfe8e9eb54ab775/symfony-docker-base-image.png" alt="Project banner image">
 
+A base image for Symfony apps with nginx / php-fpm based on s6 overlay, used to containerize applications based on the Symfony framework.
+
 ## Current variants
 
 ### 8.x
