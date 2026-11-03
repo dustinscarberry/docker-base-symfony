@@ -67,7 +67,7 @@ target "8_2_extra" {
   args = {
     PHP_VERSION = "${PHP82_VERSION}"
   }
-  tags = ["dustinscarberry/symfony:php8.2"]
+  tags = ["dustinscarberry/symfony:php8.2-extra"]
 }
 
 target "8_3_extra" {
@@ -75,7 +75,7 @@ target "8_3_extra" {
   args = {
     PHP_VERSION = "${PHP83_VERSION}"
   }
-  tags = ["dustinscarberry/symfony:php8.3"]
+  tags = ["dustinscarberry/symfony:php8.3-extra"]
 }
 
 target "8_4_extra" {
@@ -83,7 +83,7 @@ target "8_4_extra" {
   args = {
     PHP_VERSION = "${PHP84_VERSION}"
   }
-  tags = ["dustinscarberry/symfony:php8.4"]
+  tags = ["dustinscarberry/symfony:php8.4-extra"]
 }
 
 target "8_5_extra" {
@@ -91,5 +91,5 @@ target "8_5_extra" {
   args = {
     PHP_VERSION = "${PHP85_VERSION}"
   }
-  tags = ["dustinscarberry/symfony:php8.5"]
+  tags = ["dustinscarberry/symfony:php8.5-extra"]
 }
