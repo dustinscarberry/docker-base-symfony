@@ -4,7 +4,7 @@ on:
 jobs:
   bake:
     runs-on: ubuntu-latest
-    environment: prod
+    environment: production
     steps:
       - name: Login to DockerHub
         uses: docker/login-action@v4
